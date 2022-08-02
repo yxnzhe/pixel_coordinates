@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <title>Pixel Coordinates</title>
+    <head>
+        <link rel='stylesheet' type='text/css' href='css\index.css'>
+        <script src='js\index.js'></script>
+        <script async src="https://cdn.jsdelivr.net/npm/geotiff"></script>
+        <script>
+            //retrieve image
+            async function readImage() {
+                const input = document.getElementById('file');
+                const tiff = await GeoTIFF.fromBlob(input.files[0]);
+                const image = await tiff.getImage();
+
+                const origin = image.getOrigin();
+                const resolution = image.getResolution();
+                const bbox = image.getBoundingBox();
+            }
+          </script>
+    </head>
+    <body>
+        <input type="file" id="file" onchange="readImage()">
+    </body>
+</html>
