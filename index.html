@@ -1,24 +1,55 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
     <title>Pixel Coordinates</title>
     <head>
-        <link rel='stylesheet' type='text/css' href='css\index.css'>
-        <script src='js\index.js'></script>
-        <script async src="https://cdn.jsdelivr.net/npm/geotiff"></script>
-        <script>
-            //retrieve image
-            async function readImage() {
-                const input = document.getElementById('file');
-                const tiff = await GeoTIFF.fromBlob(input.files[0]);
-                const image = await tiff.getImage();
-
-                const origin = image.getOrigin();
-                const resolution = image.getResolution();
-                const bbox = image.getBoundingBox();
-            }
-          </script>
+        <script src='js\script.js' type="text/javascript"></script>
     </head>
     <body>
-        <input type="file" id="file" onchange="readImage()">
+        <form name="tiff-parser" style="margin: 10% auto auto; text-align: center;">
+            <input type="file" id="tiff-file" accept="image/tiff" required onchange="readImage(); prepareTIFF()">
+        </form>
+        <canvas id="tiff-image" style="display: block; max-width: 95%; margin: 2em auto; border: 1px dashed magenta; padding: 0px; background-color: #FFEEFF;"></canvas>
+        <div class="printImage">
+            <script>
+                // var img = document.createElement("img");
+                // img.src = "small.tif";
+
+                // var div = document.getElementById("printImage");
+                // div.appendChild(img);
+            </script>
+            <canvas id="tiff-image" style="display: block; max-width: 95%; margin: 2em auto; border: 1px dashed magenta; padding: 0px; background-color: #FFEEFF;"></canvas>
+        </div>
     </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pixel Coordinates</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" src="https://cdn.jsdelivr.net/gh/cotton123236/zoomist@latest/dist/zoomist.min.css"/>
+        <script src="js\script.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <form name="tiff-parser" method="post" enctype="multipart/form-data" style="margin: 10% auto auto; text-align: center;">
+            <div class="drag-area">
+                <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                    <header>Drag & Drop to Upload File</header>
+                    <h1>OR</h1>
+                    <span class="dragBox">Browse
+                        <input type="file" id="tiff-file" accept="image/tiff" onChange="dragNdrop(event)" ondragover="drag()" ondrop="drop()" required>
+                    </span>
+                </div>
+            </div>
+                <div class="zoom_outer">
+                    <div id="zoom">
+                      <canvas id="tiff-image" style="display: block; max-width: 95%; margin: 2em auto; border: 1px dashed magenta; padding: 0px; background-color: #FFEEFF;" alt="zoom"></canvas>
+                    </div>
+                </div>
+                <script src="js\script.js" type="text/javascript"></script>
+                <!-- <canvas id="tiff-image" style="display: block; max-width: 95%; margin: 2em auto; border: 1px dashed magenta; padding: 0px; background-color: #FFEEFF" onchange="zoom()"></canvas>     -->
+            <!-- </div> -->
+        </form>
+        
+        </body>
 </html>
