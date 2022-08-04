@@ -75,19 +75,7 @@ body{
     float:left;
     cursor:pointer
   }
-
-  .hide_file {
-    position: absolute;
-    z-index: 1000;
-    opacity: 0;
-    cursor: pointer;
-    right: 0;
-    top: 0;
-    height: 100%;
-    font-size: 24px;
-    width: 100%;
-}
-
+  
 .file-style {
     position: absolute;
     z-index: 1000;
