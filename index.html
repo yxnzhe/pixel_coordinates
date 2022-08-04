@@ -36,8 +36,15 @@
                 <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
                     <header>Drag & Drop to Upload File</header>
                     <h1>OR</h1>
-                    <span class="dragBox">Browse
-                        <input type="file" id="tiff-file" accept="image/tiff" onChange="dragNdrop(event); readImage()" ondragover="drag()" ondrop="drop()" required>
+                    <span class="dragBox">
+                        <div class="file-input">
+                            <input type="file" class="file-style" id="tiff-file" accept="image/tiff" onChange="dragNdrop(event); readImage()" ondragover="drag()" ondrop="drop()" required>
+                            <label for="file">
+                                Select file
+                                <p class="file-name"></p>
+                            </label>
+                        </div>
+                        
                     </span>
                 </div>
             </div>
