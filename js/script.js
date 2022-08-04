@@ -2,9 +2,8 @@ document.writeln("<script async src='https://cdn.jsdelivr.net/npm/geotiff'></scr
 document.writeln("<script src='js/tiff.js' type='text/javascript'></script>");
 
 //read image
-async function readImage(file) {
-    const input = file;
-    // const input = document.getElementById('tiff-file');
+async function readImage() {
+    const input = document.getElementById('tiff-file');
     const tiff = await GeoTIFF.fromBlob(input.files[0]);
     const image = await tiff.getImage();
 
@@ -17,36 +16,7 @@ async function readImage(file) {
     console.log("Bbox: ", bbox);
 }
 
-//show image
-// function prepareTIFF(file) {
-//     const input = file;
-//     // const input = document.getElementById('tiff-file');
-//     var reader = new FileReader();
-
-//     reader.onload = function(e) {
-//         var canvas = document.getElementById("tiff-image");
-//         var canvasParent = canvas.parentNode;
-
-//         // Load the TIFF parser.
-//         var tiffParser = new TIFFParser();
-
-//         console.log( tiffParser );
-
-//         // Parse the TIFF image.
-//         var tiffCanvas = tiffParser.parseTIFF(e.target.result, canvas);
-
-//         // Make it clear that we've loaded the image.
-//         tiffCanvas.style.borderStyle = "solid";
-
-//         console.log(tiffCanvas);
-
-//         // Put the parsed image in the page.
-//         canvasParent.replaceChild(tiffCanvas, canvas);
-//     };
-
-//     reader.readAsArrayBuffer(input.files[0]);
-// }
-
+//print image
 function dragNdrop(event){
     var files = document.getElementById("tiff-file").files;
     var file = files[0];
@@ -101,6 +71,7 @@ function setTransform() {
     zoom.style.transform = "translate(" + pointX + "px, " + pointY + "px) scale(" + scale + ")";
 }
 
+//zoom
 zoom.onmousedown = function (e) {
     e.preventDefault();
     start = { x: e.clientX - pointX, y: e.clientY - pointY };
@@ -136,7 +107,7 @@ zoom.onwheel = function (e) {
 //selecting all required elements
 // const dropArea = document.querySelector(".drag-area"),
 // dragText = dropArea.querySelector("header"),
-// button = dropArea.querySelector("button"),
+// button = dropArea.querySelector("span");
 // input = document.getElementById('tiff-file');
 // let file; //this is a global variable and we'll use it inside multiple functions
 

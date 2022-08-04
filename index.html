@@ -3,6 +3,7 @@
     <title>Pixel Coordinates</title>
     <head>
         <script src='js\script.js' type="text/javascript"></script>
+        <link rel="stylesheet" src="https://cdn.jsdelivr.net/gh/cotton123236/zoomist@latest/dist/zoomist.min.css"/>
     </head>
     <body>
         <form name="tiff-parser" style="margin: 10% auto auto; text-align: center;">
@@ -27,8 +28,7 @@
     <head>
         <title>Pixel Coordinates</title>
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" src="https://cdn.jsdelivr.net/gh/cotton123236/zoomist@latest/dist/zoomist.min.css"/>
-        <script src="js\script.js" type="text/javascript"></script>
+        <!-- <script src="js\script.js" type="text/javascript"></script> -->
     </head>
     <body>
         <form name="tiff-parser" method="post" enctype="multipart/form-data" style="margin: 10% auto auto; text-align: center;">
@@ -37,13 +37,13 @@
                     <header>Drag & Drop to Upload File</header>
                     <h1>OR</h1>
                     <span class="dragBox">Browse
-                        <input type="file" id="tiff-file" accept="image/tiff" onChange="dragNdrop(event)" ondragover="drag()" ondrop="drop()" required>
+                        <input type="file" id="tiff-file" accept="image/tiff" onChange="dragNdrop(event); readImage()" ondragover="drag()" ondrop="drop()" required>
                     </span>
                 </div>
             </div>
                 <div class="zoom_outer">
                     <div id="zoom">
-                      <canvas id="tiff-image" style="display: block; max-width: 95%; margin: 2em auto; border: 1px dashed magenta; padding: 0px; background-color: #FFEEFF;" alt="zoom"></canvas>
+                      <canvas id="tiff-image" style="max-width: 95%; margin: 2em auto; border: 1px dashed magenta; padding: 0px; background-color: #FFEEFF;" alt="zoom"></canvas>
                     </div>
                 </div>
                 <script src="js\script.js" type="text/javascript"></script>
